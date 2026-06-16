@@ -2,7 +2,7 @@
 
 > **AI-powered event impact forecasting and enforcement planning for Bengaluru Traffic Police**
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://trafficiq-bengaluru-congestion-intelligence-system-6zyqskmmf2n.streamlit.app/)
 
 ---
 
@@ -49,8 +49,8 @@ trafficiq/
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd trafficiq
+git clone https://github.com/anshika494/TrafficIQ-Bengaluru-Congestion-Intelligence-System.git
+cd TrafficIQ-Bengaluru-Congestion-Intelligence-System
 ```
 
 ### 2. Install Dependencies
@@ -75,7 +75,7 @@ The app will open at `http://localhost:8501`
 
 ## ☁️ Deploy to Streamlit Community Cloud
 
-1. **Push to GitHub**: Commit all files including `requirements.txt` and `.streamlit/config.toml`
+1. **Push to GitHub**:
    ```bash
    git add .
    git commit -m "Initial TrafficIQ deployment"
@@ -85,12 +85,12 @@ The app will open at `http://localhost:8501`
 2. **Connect to Streamlit Cloud**:
    - Go to [share.streamlit.io](https://share.streamlit.io)
    - Click **New App**
-   - Select your GitHub repository
+   - Select `anshika494/TrafficIQ-Bengaluru-Congestion-Intelligence-System`
    - Set **Main file path**: `app.py`
    - Click **Deploy**
 
 3. **Add Your Data File**:
-   - Include `data/events.csv` in your repository (if public data), OR
+   - Include `data/events.csv` in your repository, OR
    - Use [Streamlit Secrets](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management) for private data
 
 > **Note**: The app requires `data/events.csv` to function. The Risk Forecaster page works without data (formula-only).
@@ -135,7 +135,6 @@ The app expects a CSV at `data/events.csv` with these columns:
 ## 🎨 Design
 
 - **Theme**: Dark mode with `#0F1117` background and `#E24B4A` accent
-- **Typography**: Inter (Google Fonts)
 - **Charts**: Plotly Express + Graph Objects (no matplotlib)
 - **Map**: Folium with CartoDB dark_matter tiles
 
@@ -143,4 +142,4 @@ The app expects a CSV at `data/events.csv` with these columns:
 
 ## 📄 License
 
-Built for Bengaluru Traffic Police — Event-Driven Congestion Intelligence (EDCI) System.
+Built for the Bengaluru Traffic Police — Event-Driven Congestion Intelligence (EDCI) System.
