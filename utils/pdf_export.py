@@ -10,6 +10,44 @@ import io
 class TrafficIQPDF(FPDF):
     """Custom PDF class with header/footer branding."""
 
+    def normalize_text(self, text):
+        if not isinstance(text, str):
+            text = str(text)
+        
+        # Replace common unsupported characters with ASCII counterparts
+        replacements = {
+            "—": "-",   # em-dash
+            "–": "-",   # en-dash
+            "→": "->",  # right arrow
+            "•": "-",   # bullet point
+            "🏆": "[Top]",
+            "⏳": "[Time]",
+            "⏰": "[Peak]",
+            "🚨": "[Alert]",
+            "🚧": "[Closure]",
+            "👮": "[Personnel]",
+            "🔀": "[Diversion]",
+            "🚌": "[BTMC]",
+            "📺": "[Media]",
+            "🎖️": "[VIP]",
+            "🚑": "[Ambulance]",
+            "📻": "[Radio]",
+            "📱": "[Alert]",
+            "✓": "*",
+            "✔": "*",
+            "✅": "[OK]",
+            "⚠️": "[Warning]",
+            "🔮": "[AI]",
+            "⚡": "[Note]",
+            "📍": "*",
+        }
+        for unicode_char, ascii_char in replacements.items():
+            text = text.replace(unicode_char, ascii_char)
+            
+        # Clean any remaining characters outside latin-1 to avoid fpdf encoding crash
+        text = text.encode("latin-1", errors="replace").decode("latin-1")
+        return super().normalize_text(text)
+
     def header(self):
         self.set_font("Helvetica", "B", 14)
         self.set_fill_color(15, 17, 23)
