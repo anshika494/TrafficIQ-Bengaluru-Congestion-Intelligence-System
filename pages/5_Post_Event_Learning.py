@@ -394,8 +394,8 @@ try:
     # 3. Peak congestion window
     peak_hours_df = df_raw[df_raw["hour"].isin([20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6])]
     peak_pct = len(peak_hours_df) / len(df_raw) * 100
-    peak_start = df_raw.groupby("hour").size().nlargest(3).index.min()
-    peak_end = df_raw.groupby("hour").size().nlargest(3).index.max()
+    peak_start = int(df_raw.groupby("hour").size().nlargest(3).index.min())
+    peak_end   = int(df_raw.groupby("hour").size().nlargest(3).index.max())
 
     # 4. Zone most resources
     insight4_zone = df_raw.groupby("zone")["priority"].apply(lambda x: (x == "High").sum()).idxmax()
