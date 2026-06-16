@@ -411,7 +411,7 @@ fig_corridors.update_layout(
     font=dict(family="Inter"),
 )
 
-st.plotly_chart(fig_corridors, use_container_width=True)
+st.plotly_chart(fig_corridors, width='stretch')
 
 # ──────────────────────────────────────────────
 # QUICK STATUS BREAKDOWN
@@ -446,7 +446,7 @@ with sc1:
         title_font_color="#FAFAFA",
     )
     fig_status.update_traces(textfont_color="#FAFAFA")
-    st.plotly_chart(fig_status, use_container_width=True)
+    st.plotly_chart(fig_status, width='stretch')
 
 with sc2:
     priority_counts = df["priority"].value_counts().reset_index()
@@ -469,7 +469,7 @@ with sc2:
         title_font_color="#FAFAFA",
     )
     fig_priority.update_traces(textfont_color="#FAFAFA")
-    st.plotly_chart(fig_priority, use_container_width=True)
+    st.plotly_chart(fig_priority, width='stretch')
 
 with sc3:
     top_causes = df["event_cause"].value_counts().head(7).reset_index()
@@ -494,7 +494,7 @@ with sc3:
         title_font_color="#FAFAFA",
         coloraxis_showscale=False,
     )
-    st.plotly_chart(fig_causes, use_container_width=True)
+    st.plotly_chart(fig_causes, width='stretch')
 
 # ──────────────────────────────────────────────
 # FOOTER

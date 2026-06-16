@@ -212,7 +212,7 @@ fig_s1.add_annotation(
     font=dict(size=10, color="#9BA3AF"),
 )
 
-st.plotly_chart(fig_s1, use_container_width=True)
+st.plotly_chart(fig_s1, width='stretch')
 
 # ──────────────────────────────────────────────
 # SECTION 2 — Prediction Accuracy Simulation
@@ -307,7 +307,7 @@ fig_s2.update_layout(
 fig_s2.update_xaxes(gridcolor="rgba(255,255,255,0.05)", tickfont=dict(color="#9BA3AF"))
 fig_s2.update_yaxes(gridcolor="rgba(255,255,255,0.05)", tickfont=dict(color="#9BA3AF"))
 
-st.plotly_chart(fig_s2, use_container_width=True)
+st.plotly_chart(fig_s2, width='stretch')
 
 # ──────────────────────────────────────────────
 # SECTION 3 — Pattern Learning Table
@@ -373,7 +373,7 @@ styled_pattern = pat_filtered.style.apply(highlight_pattern, axis=1).format({
     "font-size": "12px",
 })
 
-st.dataframe(styled_pattern, use_container_width=True, hide_index=True, height=380)
+st.dataframe(styled_pattern, width='stretch', hide_index=True, height=380)
 
 # ──────────────────────────────────────────────
 # SECTION 4 — Auto-Generated Insights
@@ -461,7 +461,7 @@ insights = [
     {
         "icon": "⏰",
         "label": "Peak Congestion Window",
-        "value": f"{peak_start:02d}:00 – {peak_end:02d}:00",
+        "value": f"{int(peak_start):02d}:00 – {int(peak_end):02d}:00",
         "sub": f"accounts for {peak_pct:.0f}% of all events in the dataset",
         "color": "#FF6B35",
     },
@@ -523,7 +523,7 @@ tracker_display = tracker_display.reset_index(drop=True)
 
 edited_tracker = st.data_editor(
     tracker_display,
-    use_container_width=True,
+    width='stretch',
     num_rows="dynamic",
     column_config={
         "Corridor": st.column_config.SelectboxColumn(

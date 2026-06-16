@@ -246,7 +246,7 @@ with col_form:
     st.markdown("---")
     generate_btn = st.button(
         "🚀 Generate Deployment Plan",
-        use_container_width=True,
+        width='stretch',
         type="primary",
     )
 
@@ -460,7 +460,7 @@ with col_plan:
     exp_col1, exp_col2 = st.columns(2)
 
     with exp_col1:
-        if st.button("📄 Generate PDF Report", use_container_width=True, type="secondary"):
+        if st.button("📄 Generate PDF Report", width='stretch', type="secondary"):
             with st.spinner("Generating PDF..."):
                 try:
                     pdf_bytes = generate_event_planner_pdf(
@@ -491,7 +491,7 @@ with col_plan:
                         data=pdf_bytes,
                         file_name=f"event_plan_{event_name.replace(' ', '_')[:20]}_{date_str.replace(' ', '_')}.pdf",
                         mime="application/pdf",
-                        use_container_width=True,
+                        width='stretch',
                     )
                 except Exception as e:
                     st.error(f"PDF error: {e}")
@@ -527,7 +527,7 @@ VIP Protocol: {'Required' if vip_protocol else 'Not Required'}
             data=plan_text,
             file_name=f"event_plan_{event_name.replace(' ', '_')[:20]}.txt",
             mime="text/plain",
-            use_container_width=True,
+            width='stretch',
         )
 
 st.markdown("---")

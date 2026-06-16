@@ -106,7 +106,7 @@ with st.sidebar:
     selected_causes = st.multiselect("Cause", all_causes, default=all_causes, label_visibility="collapsed")
 
     st.markdown("---")
-    if st.button("🔄 Reset All Filters", use_container_width=True):
+    if st.button("🔄 Reset All Filters", width='stretch'):
         st.rerun()
 
 # ──────────────────────────────────────────────
@@ -205,7 +205,7 @@ fig1.add_annotation(
     align="right",
 )
 
-st.plotly_chart(fig1, use_container_width=True)
+st.plotly_chart(fig1, width='stretch')
 
 # ──────────────────────────────────────────────
 # CHART 2 — Hourly Event Volume
@@ -266,7 +266,7 @@ fig2.update_layout(
     height=380,
 )
 
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, width='stretch')
 
 # ──────────────────────────────────────────────
 # CHART 3 — Monthly Trend (Bar + Line Combo)
@@ -315,7 +315,7 @@ fig3.update_xaxes(tickfont=dict(color="#9BA3AF"), gridcolor="rgba(255,255,255,0.
 fig3.update_yaxes(title_text="Total Events", tickfont=dict(color="#9BA3AF"), gridcolor="rgba(255,255,255,0.05)", secondary_y=False)
 fig3.update_yaxes(title_text="Road Closures", tickfont=dict(color="#E24B4A"), secondary_y=True)
 
-st.plotly_chart(fig3, use_container_width=True)
+st.plotly_chart(fig3, width='stretch')
 
 # ──────────────────────────────────────────────
 # CHART 4 — Corridor Heatmap
@@ -359,7 +359,7 @@ fig4.update_layout(
     height=420,
 )
 
-st.plotly_chart(fig4, use_container_width=True)
+st.plotly_chart(fig4, width='stretch')
 
 # ──────────────────────────────────────────────
 # CHART 5 & 6 side by side
@@ -387,7 +387,7 @@ with col_c5:
         xaxis=dict(tickfont=dict(color="#FAFAFA")),
         yaxis=dict(gridcolor="rgba(255,255,255,0.05)", tickfont=dict(color="#9BA3AF")),
     )
-    st.plotly_chart(fig5, use_container_width=True)
+    st.plotly_chart(fig5, width='stretch')
 
 with col_c6:
     st.markdown("#### 📆 Chart 6 — Day of Week Pattern")
@@ -436,7 +436,7 @@ with col_c6:
         yaxis=dict(title="Event Count", gridcolor="rgba(255,255,255,0.05)", tickfont=dict(color="#9BA3AF")),
         height=350,
     )
-    st.plotly_chart(fig6, use_container_width=True)
+    st.plotly_chart(fig6, width='stretch')
 
 # ──────────────────────────────────────────────
 # CHART 7 — Zone Risk Table
@@ -479,7 +479,7 @@ styled_zone = zone_df.style.map(
     "font-size": "13px",
 })
 
-st.dataframe(styled_zone, use_container_width=True, hide_index=True)
+st.dataframe(styled_zone, width='stretch', hide_index=True)
 
 # ──────────────────────────────────────────────
 # CHART 8 — Active Events Feed
@@ -546,7 +546,7 @@ else:
         "font-size": "12px",
     })
 
-    st.dataframe(styled_active, use_container_width=True, hide_index=True, height=350)
+    st.dataframe(styled_active, width='stretch', hide_index=True, height=350)
 
 st.markdown("---")
 st.markdown("""

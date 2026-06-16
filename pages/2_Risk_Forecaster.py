@@ -220,7 +220,7 @@ with col_inputs:
     st.markdown("---")
     compute_btn = st.button(
         "🔮 Compute Risk & Generate Plan",
-        use_container_width=True,
+        width='stretch',
         type="primary",
     )
 
@@ -318,7 +318,7 @@ with col_outputs:
         height=220,
         font=dict(family="Inter"),
     )
-    st.plotly_chart(fig_gauge, use_container_width=True)
+    st.plotly_chart(fig_gauge, width='stretch')
 
     # Score breakdown
     with st.expander("📊 View Score Breakdown", expanded=False):
@@ -431,7 +431,7 @@ with col_outputs:
 
     # ── PDF EXPORT ──
     st.markdown("---")
-    if st.button("📄 Download Deployment Plan as PDF", use_container_width=True, type="secondary"):
+    if st.button("📄 Download Deployment Plan as PDF", width='stretch', type="secondary"):
         with st.spinner("Generating PDF..."):
             try:
                 pdf_bytes = generate_risk_forecaster_pdf(
@@ -455,7 +455,7 @@ with col_outputs:
                     data=pdf_bytes,
                     file_name=f"deployment_plan_{corridor.replace(' ', '_')}_{hour:02d}h.pdf",
                     mime="application/pdf",
-                    use_container_width=True,
+                    width='stretch',
                 )
             except Exception as e:
                 st.error(f"PDF generation error: {e}")
