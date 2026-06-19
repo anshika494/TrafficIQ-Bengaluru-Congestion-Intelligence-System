@@ -394,7 +394,6 @@ with col_sim:
     
     with st.container(border=True):
         st.markdown("<p style='font-size:0.85rem; color:#9BA3AF;'>Tweak dispatch response parameters to simulate mitigation improvements on gridlock cleanup and carbon metrics.</p>", unsafe_allow_html=True)
-        st.ln(1)
         
         # Levers
         resp_saved = st.slider("⏱️ Dispatch Response Time Saved (mins)", min_value=0, max_value=45, value=15, step=5,
